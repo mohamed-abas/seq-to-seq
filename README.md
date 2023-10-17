@@ -4,47 +4,47 @@ The growing risk of new variants of the influenza A virus is the most significan
 
 ## Sequence to Sequence Model
 
-![[seq_to_seq.PNG]]
+![Sequence to Sequence Model]( /images/seq_to_seq.PNG "Sequence to Sequence Model") 
 
 
 ## Attention Layer
 
-![[Attention.PNG]]
+![Attention.PNG](/images/Attention.PNG "Attention Layer")
 
 ## Experimental Models Architectures
 
-![[Architectures.PNG]]
+![Experimental Models Architectures](/images/Architectures.PNG "Experimental Models Architectures")
 
 ## Hyper-Parameters
 
-![[hyper.PNG]]
+![Hyper-Parameters](/images/hyper.PNG "Hyper-Parameters")
 
 
 ## Evaluation Metrics
  The generated sequences acquired during the test phase are evaluated against the original sequences. Since the approach taken in this paper is similar to approaches used in NLP, it was convenient to use accuracy metrics used in NLP as well. Hence, the utilization of the BLEU score which is often used in NLP problems. BLEU score consists of two main terms, particularly precision score and a brevity penalty. The precision score, calculated for each n-gram length by summing over the match for a generated sequence _S_ against the original sequence _O_ from the test set.
  
-![[BLEU.PNG]]
+![Hyper-Parameters](/images/BLEU.PNG "Hyper-Parameters")
 
 ## Results
 
 During the training stage, architectures utilizing bi-directional recurrent layers—both LSTM and GRU—performed better than other architectures in terms of both training and validation accuracy. Unexpectedly, the addition of an attention layer to the encoder-decoder architecture did not improve training or validation accuracy. Moreover, in the case of using bi-directional LSTM recurrent layer in encoder and decoder with additional attention layer, both the training and validation accuracy were lower than the chosen baseline architectures.
 
-![[Train1.PNG]]
+![Training](/images/Train1.PNG "Training")
 
 
  Improvement are shown in training accuracy and loss compared to the validation over epochs for the architecture utilizing bi-directional GRU as a recurrent layer. However, the improvement in accuracy was very small after approximately 60 epochs. It is notable that, the loss and accuracy of both training and validation are almost identical, with a very small generalization gap. Moreover, both loss and accuracy reach a point of stability at the end of training epochs. This typically indicates that the model is a good fit.
 
-![[Train_valid.PNG]]
+![Training Versus Validation](/images/Train_valid.PNG "Training Versus Validation")
 
 
 Surprisingly, the best-performing architecture was the one based on bi-directional GRU layers, despite the expectations that the introduction of attention would improve accuracy. Nevertheless, the bi-directional LSTM with attention and deep GRU performed less than baseline architectures.
 
-![[Mean Accuracy.PNG]]
+![Mean Accuracy](/images/Mean Accuracy.PNG "Mean Accuracy")
 
 Additionally, the bi-directional GRU architecture achieved a higher mean accuracy. However, the gap between this architecture and attention-based architectures is fairly high, which indicates that attention might not be helpful in this case.
 The leading architecture (Deep_BI_GRU), when evaluated with a 1-gram BLEU score shows a maximum accuracy of 100% and a median accuracy of 98.5% approximately where the first quartile is above 96%. In other words, generated sequences accuracy distribution is right-skewed with a minimum accuracy of 92%, which indicates a high quality in generated sequences when compared to original sequences. On the other hand, the LSTM architecture shows more diversity in results with a lower mean accuracy of 96% approximately and a minimum accuracy below 92%. Finally, the bi-directional LSTM with attention model shows even higher variations in generated sequences quality where the minimum falls below 88%. clearly proposed architectures have consistent accuracy distributions over 4-gram BLEU scores where the bi-directional GRU architecture is explicitly performing better than other architectures.
 
-![[Accuracy Distribution.PNG]]
+![Accuracy Distribution](/images/Accuracy Distribution.PNG "Accuracy Distribution")
 
 
 ## Conclusion
