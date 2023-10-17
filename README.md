@@ -39,12 +39,12 @@ During the training stage, architectures utilizing bi-directional recurrent laye
 
 Surprisingly, the best-performing architecture was the one based on bi-directional GRU layers, despite the expectations that the introduction of attention would improve accuracy. Nevertheless, the bi-directional LSTM with attention and deep GRU performed less than baseline architectures.
 
-![Mean Accuracy](/images/Mean Accuracy.PNG "Mean Accuracy")
+![Mean Accuracy](/images/Mean_Accuracy.PNG "Mean Accuracy")
 
 Additionally, the bi-directional GRU architecture achieved a higher mean accuracy. However, the gap between this architecture and attention-based architectures is fairly high, which indicates that attention might not be helpful in this case.
 The leading architecture (Deep_BI_GRU), when evaluated with a 1-gram BLEU score shows a maximum accuracy of 100% and a median accuracy of 98.5% approximately where the first quartile is above 96%. In other words, generated sequences accuracy distribution is right-skewed with a minimum accuracy of 92%, which indicates a high quality in generated sequences when compared to original sequences. On the other hand, the LSTM architecture shows more diversity in results with a lower mean accuracy of 96% approximately and a minimum accuracy below 92%. Finally, the bi-directional LSTM with attention model shows even higher variations in generated sequences quality where the minimum falls below 88%. clearly proposed architectures have consistent accuracy distributions over 4-gram BLEU scores where the bi-directional GRU architecture is explicitly performing better than other architectures.
 
-![Accuracy Distribution](/images/Accuracy Distribution.PNG "Accuracy Distribution")
+![Accuracy Distribution](/images/Accuracy_Distribution.PNG "Accuracy Distribution")
 
 
 ## Conclusion
